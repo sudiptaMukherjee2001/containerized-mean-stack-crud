@@ -49,7 +49,7 @@ pipeline{
             steps{
 
                 sshagent(['6d75cf85-fa78-4e86-89cc-b433e22f0c6e']) {
-                    sh "ssh -o StrictHostKeyChecking=no ec2-user@18.224.63.144 'ls -la; echo \\"Connected successfully\\"; whoami'""
+                    sh "ssh -o StrictHostKeyChecking=no ec2-user@18.224.63.144 'ls -la; echo \\"Connected successfully\\"; whoami'"
                 }
                 echo "========Pulling the images from docker hub========"
                     // sh "docker pull sudipta4docker/dd_internship:frontend"
