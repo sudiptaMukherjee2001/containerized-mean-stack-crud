@@ -1,7 +1,7 @@
 # ---------- Stage 1: Install Dependencies ----------
 FROM node:20-alpine AS builder
 
-WORKDIR /app
+WORKDIR /frontend
 
 # Copy only package files first (better caching)
 COPY package*.json ./
@@ -16,11 +16,11 @@ COPY . .
 # ---------- Stage 2: Runtime Image ----------
 FROM node:20-alpine
 
-WORKDIR /app
+WORKDIR /frontend
 
 # Copy only necessary files from builder
-COPY --from=builder /app /app
+COPY --from=builder /frontend /frontend
 
-EXPOSE 8081
+EXPOSE 4200
 
-CMD ["node", "server.js"]
+CMD ["npx", "ng", "serve", "--host", "0.0.0.0", "--port", "4200"]
