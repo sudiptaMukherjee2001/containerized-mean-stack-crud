@@ -45,15 +45,24 @@ pipeline{
                 
             }
         }
-        stage("ssh to the vm and pull the images"){
+        stage("ssh to the vm and pull the images and restart the containers"){
             steps{
 
                 sshagent(['6d75cf85-fa78-4e86-89cc-b433e22f0c6e']) {
-                    sh "ssh -o StrictHostKeyChecking=no ubuntu@18.224.63.144"
+                    sh '''
+                        ssh -o StrictHostKeyChecking=no ubuntu@18.224.63.144 << EOF
+                        cd /home/ubuntu
+
+                        echo "Pulling latest images..."
+                        docker compose pull
+
+                        echo "Recreating containers..."
+                        docker compose up -d
+
+                        echo "Deployment completed"
+                        EOF
+                        '''
                 }
-                echo "========Pulling the images from docker hub========"
-                    // sh "docker pull sudipta4docker/dd_internship:frontend"
-                    // sh "docker pull sudipta4docker/dd_internship:backend"                   
                 
             }
             post{
