@@ -30,8 +30,7 @@ pipeline{
                         echo "========Login to docker hub successfully========"
                     }
                     failure{
-                        echo "========Login0.
-                         to docker hub execution failed========"
+                        echo "========Login to docker hub execution failed========"
                     }
                 }
         }
@@ -51,7 +50,7 @@ pipeline{
 
                 sshagent(['6d75cf85-fa78-4e86-89cc-b433e22f0c6e']) {
                     sh '''
-                        ssh -o StrictHostKeyChecking=no ubuntu@18.191.240.136 '
+                        ssh -o StrictHostKeyChecking=no ubuntu@18.224.63.144 '
                         cd /home/ubuntu
 
                         echo "Pulling latest images..."
