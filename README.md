@@ -2,6 +2,19 @@
 
 > About this Project :- In this project I tried to deploy a MEAN stack application using containers and automate the deployment using Jenkins CI/CD. I documented this project step by step in my notebook while building it, and this README is written based on my own understanding and notes. 
 
+```mermaid
+flowchart TD
+
+A[User Browser] --> B[AWS EC2]
+
+B --> C[Nginx Reverse Proxy]
+
+C --> D[Angular Frontend Container]
+C --> E[Node.js Backend Container]
+
+E --> F[MongoDB Container]
+```
+
 The main goal of this project was to understand how real applications are deployed in production using:
 
 - ### Docker
