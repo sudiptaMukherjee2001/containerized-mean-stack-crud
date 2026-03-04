@@ -1,13 +1,5 @@
 services:
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-    depends_on:
-      - frontend
-      - backend
+
   frontend:
     build:
       context: ./frontend
