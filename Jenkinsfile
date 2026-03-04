@@ -50,7 +50,7 @@ pipeline{
 
                 sshagent(['6d75cf85-fa78-4e86-89cc-b433e22f0c6e']) {
                     sh '''
-                        ssh -o StrictHostKeyChecking=no ubuntu@3.148.166.239 '
+                        ssh -o StrictHostKeyChecking=no ubuntu@18.224.61.29'
                         cd /home/ubuntu
 
                         echo "Pulling latest images..."
